@@ -55,6 +55,7 @@
             this.BackgroundImage = global::C_sharp_Pokedex.Properties.Resources.pokedexCerrada;
             this.ClientSize = new System.Drawing.Size(634, 861);
             this.Controls.Add(this.open);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Portada";
             this.Text = "Form1";

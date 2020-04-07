@@ -63,6 +63,16 @@ namespace C_sharp_Pokedex.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bluetooth {
+            get {
+                object obj = ResourceManager.GetObject("bluetooth", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap off {
             get {
                 object obj = ResourceManager.GetObject("off", resourceCulture);
@@ -86,6 +96,26 @@ namespace C_sharp_Pokedex.Properties {
         internal static System.Drawing.Bitmap pokedex {
             get {
                 object obj = ResourceManager.GetObject("pokedex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pokedex2_abierta {
+            get {
+                object obj = ResourceManager.GetObject("pokedex2_abierta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pokedex2_cerrada {
+            get {
+                object obj = ResourceManager.GetObject("pokedex2_cerrada", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

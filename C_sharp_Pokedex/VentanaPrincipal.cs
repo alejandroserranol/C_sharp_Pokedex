@@ -21,9 +21,9 @@ namespace C_sharp_Pokedex
         public VentanaPrincipal()
         {
             InitializeComponent();
-            dataGridView1.DataSource = miConexion.getTodosPokemons();
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            listaPkmn.DataSource = miConexion.getTodosPokemons();
+            listaPkmn.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            listaPkmn.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
         }
 
         private Image convierteBlobAImagen(byte[] img)
@@ -40,6 +40,7 @@ namespace C_sharp_Pokedex
             misPokemons = miConexion.getPokemonPorId(idActual);
             numPkmn.Text = "#" + misPokemons.Rows[0]["id"].ToString();
             nombrePkmn.Text = misPokemons.Rows[0]["nombre"].ToString();
+            descripcion.Text = misPokemons.Rows[0]["descripcion"].ToString();
             especiePkmn.Text = misPokemons.Rows[0]["especie"].ToString();
             pesoPkmn.Text = misPokemons.Rows[0]["peso"].ToString();
             alturaPkmn.Text = misPokemons.Rows[0]["altura"].ToString();
@@ -60,6 +61,7 @@ namespace C_sharp_Pokedex
             misPokemons = miConexion.getPokemonPorId(idActual);
             numPkmn.Text = "#" + misPokemons.Rows[0]["id"].ToString();
             nombrePkmn.Text = misPokemons.Rows[0]["nombre"].ToString();
+            descripcion.Text = misPokemons.Rows[0]["descripcion"].ToString();
             especiePkmn.Text = misPokemons.Rows[0]["especie"].ToString();
             pesoPkmn.Text = misPokemons.Rows[0]["peso"].ToString();
             alturaPkmn.Text = misPokemons.Rows[0]["altura"].ToString();
@@ -76,7 +78,8 @@ namespace C_sharp_Pokedex
         {
             idActual = 0;
             numPkmn.Text = "";
-            numPkmn.Text = "";
+            nombrePkmn.Text = "";
+            descripcion.Text = "";
             especiePkmn.Text = "";
             pesoPkmn.Text = "";
             alturaPkmn.Text = "";
@@ -97,6 +100,7 @@ namespace C_sharp_Pokedex
             misPokemons = miConexion.getPokemonPorId(idActual);
             numPkmn.Text = "#" + misPokemons.Rows[0]["id"].ToString();
             nombrePkmn.Text = misPokemons.Rows[0]["nombre"].ToString();
+            descripcion.Text = misPokemons.Rows[0]["descripcion"].ToString();
             especiePkmn.Text = misPokemons.Rows[0]["especie"].ToString();
             pesoPkmn.Text = misPokemons.Rows[0]["peso"].ToString();
             alturaPkmn.Text = misPokemons.Rows[0]["altura"].ToString();
@@ -117,6 +121,7 @@ namespace C_sharp_Pokedex
             misPokemons = miConexion.getPokemonPorId(idActual);
             numPkmn.Text = "#" + misPokemons.Rows[0]["id"].ToString();
             nombrePkmn.Text = misPokemons.Rows[0]["nombre"].ToString();
+            descripcion.Text = misPokemons.Rows[0]["descripcion"].ToString();
             especiePkmn.Text = misPokemons.Rows[0]["especie"].ToString();
             pesoPkmn.Text = misPokemons.Rows[0]["peso"].ToString();
             alturaPkmn.Text = misPokemons.Rows[0]["altura"].ToString();
@@ -129,26 +134,42 @@ namespace C_sharp_Pokedex
             imagenPkmn.Image = convierteBlobAImagen((byte[])misPokemons.Rows[0]["imagen"]);
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void openListaPkmn_Click(object sender, EventArgs e)
         {
-            numPkmn.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            nombrePkmn.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            especiePkmn.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            pesoPkmn.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            alturaPkmn.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            tipo1.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            tipo2.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            movimiento1.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            movimiento2.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            movimiento3.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            movimiento4.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            imagenPkmn.Image = convierteBlobAImagen((byte[])dataGridView1.Rows[e.RowIndex].Cells["imagen"].Value);
+            if (segundaPantalla.Visible == false && datosPkmn.Visible == false)
+            {
+                segundaPantalla.Visible = true;
+            }
+            else
+            {
+                segundaPantalla.Visible = false;
+                datosPkmn.Visible = false;
+                listaPkmn.Visible = false;
+                bluetooth.Visible = false;
+            }
         }
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void listaPkmn_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            String nombre = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-            String id = dataGridView1.Rows[e.RowIndex].Cells["id"].Value.ToString();
+            numPkmn.Text = listaPkmn.Rows[e.RowIndex].Cells["id"].Value.ToString();
+            nombrePkmn.Text = listaPkmn.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+            descripcion.Text = listaPkmn.Rows[e.RowIndex].Cells["descripcion"].Value.ToString();
+            especiePkmn.Text = listaPkmn.Rows[e.RowIndex].Cells["especie"].Value.ToString();
+            pesoPkmn.Text = listaPkmn.Rows[e.RowIndex].Cells["peso"].Value.ToString();
+            alturaPkmn.Text = listaPkmn.Rows[e.RowIndex].Cells["altura"].Value.ToString();
+            tipo1.Text = listaPkmn.Rows[e.RowIndex].Cells["tipo1"].Value.ToString();
+            tipo2.Text = listaPkmn.Rows[e.RowIndex].Cells["tipo2"].Value.ToString();
+            movimiento1.Text = listaPkmn.Rows[e.RowIndex].Cells["movimiento1"].Value.ToString();
+            movimiento2.Text = listaPkmn.Rows[e.RowIndex].Cells["movimiento2"].Value.ToString();
+            movimiento3.Text = listaPkmn.Rows[e.RowIndex].Cells["movimiento3"].Value.ToString();
+            movimiento4.Text = listaPkmn.Rows[e.RowIndex].Cells["movimiento4"].Value.ToString();
+            imagenPkmn.Image = convierteBlobAImagen((byte[])listaPkmn.Rows[e.RowIndex].Cells["imagen"].Value);
+        }
+
+        private void listaPkmn_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            String nombre = listaPkmn.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+            String id = listaPkmn.Rows[e.RowIndex].Cells["id"].Value.ToString();
 
             MessageBox.Show(miConexion.actualizaPokemons(id, nombre));
         }
@@ -159,6 +180,14 @@ namespace C_sharp_Pokedex
         {
             if (e.CloseReason == CloseReason.WindowsShutDown) return;
             Application.Exit();
+        }
+
+        private void openDatosPkmn_Click(object sender, EventArgs e)
+        {
+            segundaPantalla.Visible = false;
+            bluetooth.Visible = true;
+            datosPkmn.Visible = true;
+            listaPkmn.Visible = true;
         }
     }
 }

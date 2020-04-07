@@ -21,8 +21,8 @@ namespace C_sharp_Pokedex
         {
             this.Hide();
 
-            VentanaPrincipal ventana = new VentanaPrincipal();
-            ventana.Show();
+            VentanaPrincipal ventana01 = new VentanaPrincipal();
+            ventana01.Show();
         }
     }
 }
